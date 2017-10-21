@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountSystem.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,29 @@ namespace AccountSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private IAppUserService _userService;
+
+        public MainWindow(IAppUserService userService)
         {
             InitializeComponent();
+
+            _userService = userService;
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            String username = UsernameField.Text;
+            String password = PasswordField.Password;
+
+            if (_userService.CheckUser(username, password))
+            {
+                //TODO add logic
+                Close();
+            }
+            else
+            {
+                ErrorLabel.Content = "Invalid credentials";
+            }
         }
     }
 }

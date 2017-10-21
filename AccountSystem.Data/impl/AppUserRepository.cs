@@ -11,7 +11,16 @@ namespace AccountSystem.Data.impl
 
         public AppUser FindByUserName(String userName)
         {
-            return _dbSet.Where(u => u.UserName == userName).First();
+            IQueryable<AppUser> results = _dbSet.Where(u => u.UserName == userName);
+
+            if (results.Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return results.First();
+            }
         }
     }
 }

@@ -4,9 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccountSystem"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Accounting System" Height="800" Width="1200"
+        Background="{StaticResource MainBrush}">
     <Grid>
-        
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Separator Grid.Row="0" Grid.Column="0" Height="40"/>
+                    <Label Grid.Row="1" Grid.Column="0" Background="{StaticResource MainBrush}" Style="{StaticResource WelcomeFont}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="56">Welcome</Label>
+                </Grid>
+                <Grid Height="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:ErrorLabel x:Name="ErrorLabel" Grid.Row="0" Grid.Column="1" Margin="10"  Style="{StaticResource ErrorLabel}"></local:ErrorLabel>
+                    <TextBox x:Name="UsernameField" FontSize="36" Grid.Row="1" Grid.Column="1" Margin="10" Style="{StaticResource WaterMarkTextBox}"
+                         local:WaterMarkTextHelper.WatermarkText="Username"></TextBox>
+                    <PasswordBox x:Name="PasswordField" FontSize="36" Grid.Row="2" Grid.Column="1" Margin="10"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Style="{StaticResource RoundCorner}"  Grid.Column="1" Margin="10" FontSize="36" Click="Login_Click">Log In</Button>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
