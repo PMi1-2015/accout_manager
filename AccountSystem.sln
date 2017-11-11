@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountSystem", "AccountSystem\AccountSystem.csproj", "{C18510B1-ED15-4CDE-8471-2384A30E03F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7982E9EC-A714-46F5-82A7-F29A392ED0D3} = {7982E9EC-A714-46F5-82A7-F29A392ED0D3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountSystem.Data", "AccountSystem.Data\AccountSystem.Data.csproj", "{7982E9EC-A714-46F5-82A7-F29A392ED0D3}"
 EndProject

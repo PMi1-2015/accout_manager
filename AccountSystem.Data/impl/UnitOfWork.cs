@@ -5,6 +5,14 @@ namespace AccountSystem.Data
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
+        private static readonly UnitOfWork _unitOfWork = new UnitOfWork();
+
+        private UnitOfWork()
+        {
+        }
+
+        public static IUnitOfWork Instance => _unitOfWork;
+
         private readonly AccountSystemContext _context = new AccountSystemContext();
 
         private IAppUserRepository _appUserRepository;
