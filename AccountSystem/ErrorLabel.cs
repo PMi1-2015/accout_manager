@@ -21,8 +21,8 @@ namespace AccountSystem
         {
             double to = Visibility == Visibility.Visible ? 0.0 : 1.0;
             double from = Visibility == Visibility.Visible ? 1.0 : 0.0;
-            Visibility newState = Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Collapsed;
-            double beginTime = Visibility == Visibility.Visible ? 3 : 0;
+            Visibility newState = Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+            double beginTime = Visibility == Visibility.Visible ? 2 : 0;
 
             var disapppearAnimation = new DoubleAnimation
             {
@@ -30,7 +30,7 @@ namespace AccountSystem
                 To = from,
                 FillBehavior = FillBehavior.Stop,
                 BeginTime = TimeSpan.FromSeconds(beginTime),
-                Duration = new Duration(TimeSpan.FromSeconds(0.5))
+                Duration = new Duration(TimeSpan.FromSeconds(0.1))
             };
 
             var storyBoard = new Storyboard();
@@ -39,6 +39,7 @@ namespace AccountSystem
             storyBoard.Completed += (o, e) =>
             {
                 Visibility = newState;
+                Content = "";
             };
 
             Storyboard.SetTarget(disapppearAnimation, this);

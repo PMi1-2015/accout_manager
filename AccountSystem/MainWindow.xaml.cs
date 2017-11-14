@@ -32,16 +32,21 @@ namespace AccountSystem
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            button.IsEnabled = false;
             String username = UsernameField.Text;
             String password = PasswordField.Password;
 
-            if (_userService.CheckUser(username, password))
+            if (_userService.AuthenticateUser(username, password))
             {
-                //TODO add logic
-                Close();
+                var managementWindow = new ManagementWindow();
+                Application.Current.MainWindow = managementWindow;
+                this.Close();
+                managementWindow.Show();
             }
             else
             {
+                button.IsEnabled = true;
                 ErrorLabel.Content = "Invalid credentials";
             }
         }

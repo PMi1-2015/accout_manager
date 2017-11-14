@@ -20,7 +20,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Separator Grid.Row="0" Grid.Column="0" Height="40"/>
+                    <Separator Grid.Row="0" Grid.Column="0" Height="40" Visibility="Hidden"/>
                     <Label Grid.Row="1" Grid.Column="0" Background="{StaticResource MainBrush}" Style="{StaticResource WelcomeFont}"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="56">Welcome</Label>
                 </Grid>

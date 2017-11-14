@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="AccountSystem.MenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccountSystem"
+             mc:Ignorable="d" 
+            Background="{StaticResource MainBrush}">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Separator Grid.Row="0" Grid.Column="1" Height="200" Visibility="Hidden"/>
+                <Button Grid.Row="1" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}" Command="{Binding ProjectsCommand}">Manage Projects</Button>
+                <Button Grid.Row="2" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}">Manage Positions</Button>
+                <Button Grid.Row="3" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}">Manage Employees</Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

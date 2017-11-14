@@ -5,6 +5,6 @@ namespace AccountSystem.Data
 {
     public interface IEmployeeRepository : IRepository<Employee>
     {
-        IEnumerable<Employee >FindByName(String name);
+        IEnumerable<Employee> FindByName(String name);
     }
 }
