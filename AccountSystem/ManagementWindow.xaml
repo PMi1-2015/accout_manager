@@ -20,6 +20,9 @@
         <DataTemplate DataType="{x:Type vm:AddProjectViewModel}">
             <v:AddProjectView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProjectsViewModel}">
+            <v:ProjectsView/>
+        </DataTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">
         <ContentControl x:Name="Pages" Content="{Binding SelectedViewModel}"/>

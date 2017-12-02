@@ -25,6 +25,11 @@ namespace AccountSystem.Services.impl
             _unitOfWork.Save();
         }
 
+        public List<Project> SearchProject(string name, DateTime? startDate, DateTime? endDate)
+        {
+            return _unitOfWork.ProjectRepository.SearchProject(name, startDate, endDate).ToList();
+        }
+
         private void ValidateProject(Project project)
         {
             if (project.StartDate.CompareTo(project.EndDate) > 0 ||
@@ -33,5 +38,7 @@ namespace AccountSystem.Services.impl
                 throw new Exception("Invalid project data");
             }
         }
+
+
     }
 }

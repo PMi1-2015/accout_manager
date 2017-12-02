@@ -10,5 +10,6 @@ namespace AccountSystem.Services
     public interface IProjectService
     {
         void SaveProject(Project project);
+        List<Project> SearchProject(String name, DateTime? startDate, DateTime? endDate);
     }
 }

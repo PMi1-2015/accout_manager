@@ -32,8 +32,7 @@
                 </Grid.ColumnDefinitions>
                 <Separator Grid.Row="0" Grid.Column="1" Height="200" Visibility="Hidden"/>
                 <Button Grid.Row="1" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}" Command="{Binding AddProjectViewAction}">Add Project</Button>
-                <Button Grid.Row="2" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}">Update Project</Button>
-                <Button Grid.Row="3" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}">Find Projects</Button>
+                <Button Grid.Row="3" Grid.Column="1" FontSize="36" Margin="5" Style="{StaticResource RoundCorner}" Command="{Binding FindProjectViewAction}">Find Projects</Button>
             </Grid>
         </StackPanel>
     </Grid>

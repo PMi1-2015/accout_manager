@@ -14,6 +14,7 @@ namespace AccountSystem.ViewModels
 
         public ICommand BackAction { get; set; }
         public ICommand AddProjectViewAction { get; set; }
+        public ICommand FindProjectViewAction { get; set; }
 
         public ProjectsCrudViewModel(NavigationViewModel navigationViewModel)
         {
@@ -21,6 +22,7 @@ namespace AccountSystem.ViewModels
 
             BackAction = new RelayCommand(ReturnBack);
             AddProjectViewAction = new RelayCommand(AddProjectView);
+            FindProjectViewAction = new RelayCommand(FindProjectView);
         }
 
         public void ReturnBack(object obj)
@@ -31,6 +33,11 @@ namespace AccountSystem.ViewModels
         public void AddProjectView(object obj)
         {
             _navigationViewModel.SelectedViewModel = new AddProjectViewModel(_navigationViewModel);
+        }
+
+        public void FindProjectView(object obj)
+        {
+            _navigationViewModel.SelectedViewModel = new ProjectsViewModel(_navigationViewModel);
         }
     }
 }
