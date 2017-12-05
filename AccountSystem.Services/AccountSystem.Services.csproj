@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="impl\AppUserService.cs" />
     <Compile Include="IAppUserService.cs" />
+    <Compile Include="impl\ProjectService.cs" />
+    <Compile Include="IProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />
   </ItemGroup>

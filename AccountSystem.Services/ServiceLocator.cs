@@ -26,6 +26,7 @@ namespace AccountSystem.Services
         private void Bind()
         {
             _container.RegisterInstance<IAppUserService>(new AppUserService(UnitOfWork.Instance));
+            _container.RegisterInstance<IProjectService>(new ProjectService(UnitOfWork.Instance));
         }
 
         public T GetService<T>()

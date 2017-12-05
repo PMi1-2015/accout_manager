@@ -15,6 +15,11 @@ namespace AccountSystem.Services.impl
 
         public void AddUser(string username, string password)
         {
+            if (AuthenticateUser(username, password))
+            {
+                throw new System.Exception("Can't add existing user");
+            }
+
             AppUser appUser = new AppUser
             {
                 UserName = username,
@@ -25,7 +30,7 @@ namespace AccountSystem.Services.impl
             _unitOfWork.Save();
         }
 
-        public bool CheckUser(string username, string password)
+        public bool AuthenticateUser(string username, string password)
         {
             AppUser user = _unitOfWork.AppUserRepository.FindByUserName(username);
 

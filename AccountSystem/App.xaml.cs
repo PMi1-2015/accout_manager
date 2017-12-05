@@ -16,13 +16,15 @@ namespace AccountSystem
     /// </summary>
     public partial class App : Application
     {
-        private IUnityContainer _unityContainer = new UnityContainer();
+        private UnityContainer _unityContainer = new UnityContainer();
+        public UnityContainer Container { get { return _unityContainer; } }
 
         private void SetUpContainer()
         {
             ServiceLocator serviceLocator = ServiceLocator.Instance;
 
             _unityContainer.RegisterInstance<IAppUserService>(serviceLocator.GetService<IAppUserService>());
+            _unityContainer.RegisterInstance<IProjectService>(serviceLocator.GetService<IProjectService>());
 
             _unityContainer.RegisterType<MainWindow>();
         }

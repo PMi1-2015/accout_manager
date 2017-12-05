@@ -9,6 +9,6 @@ namespace AccountSystem.Services
     public interface IAppUserService
     {
         void AddUser(string username, string password);
-        bool CheckUser(String username, String password);
+        bool AuthenticateUser(String username, String password);
     }
 }
