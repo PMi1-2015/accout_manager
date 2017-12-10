@@ -1,4 +1,5 @@
-﻿using AccountSystem.Services;
+﻿using AccountSystem.Data.models;
+using AccountSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
