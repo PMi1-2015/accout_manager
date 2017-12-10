@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccountSystem.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -116,6 +117,11 @@ namespace AccountSystem.Views
             SortDescription sd = new SortDescription(sortBy, nonNullableDirection);
             dataView.SortDescriptions.Add(sd);
             dataView.Refresh();
+        }
+
+        private void OnMouseLeftButtonDown(object o, object args)
+        {
+            ((ProjectsViewModel)DataContext).SelectProjectAction.Execute(null);
         }
     }
 }

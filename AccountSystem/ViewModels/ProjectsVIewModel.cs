@@ -7,12 +7,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace AccountSystem.ViewModels
 {
     class ProjectsViewModel : BaseViewModel
     {
+        public Project SelectedProject { get; set; }
+
         private bool _useStart = false;
         public Boolean UseStart { get { return _useStart; } set { _useStart = value; OnPoropertyChanged("UseStart"); } }
 
@@ -79,8 +83,16 @@ namespace AccountSystem.ViewModels
 
         public ICommand BackAction { get; set; }
 
+        private ICommand _selectProjectAction;
+        public ICommand SelectProjectAction => _selectProjectAction;
+
         private ICommand _searchCommand;
         public ICommand SearchCommand => _searchCommand;
+
+        public void SelectProject(object obj)
+        {
+            _navigationViewModel.SelectedViewModel = new ProjectUpdateViewModel(_navigationViewModel, this, SelectedProject);
+        }
 
         public ProjectsViewModel(NavigationViewModel navigationViewModel)
         {
@@ -95,6 +107,8 @@ namespace AccountSystem.ViewModels
             });
 
             BackAction = new RelayCommand(ReturnBack);
+
+            _selectProjectAction = new RelayCommand(SelectProject);
         }
 
         private List<Project> SearchProjects()

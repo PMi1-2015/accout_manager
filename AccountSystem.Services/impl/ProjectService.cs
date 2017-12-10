@@ -17,6 +17,12 @@ namespace AccountSystem.Services.impl
             _unitOfWork = unitOfWork;
         }
 
+        public void DeleteProject(Project project)
+        {
+            _unitOfWork.ProjectRepository.Delete(project.Id);
+            _unitOfWork.Save();
+        }
+
         public void SaveProject(Project project)
         {
             ValidateProject(project);
@@ -28,6 +34,14 @@ namespace AccountSystem.Services.impl
         public List<Project> SearchProject(string name, DateTime? startDate, DateTime? endDate)
         {
             return _unitOfWork.ProjectRepository.SearchProject(name, startDate, endDate).ToList();
+        }
+
+        public void UpdateProject(Project project)
+        {
+            ValidateProject(project);
+
+            _unitOfWork.ProjectRepository.Update(project);
+            _unitOfWork.Save();
         }
 
         private void ValidateProject(Project project)

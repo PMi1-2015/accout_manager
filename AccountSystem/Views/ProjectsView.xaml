@@ -96,8 +96,7 @@
                     <ColumnDefinition Width="18.2*"/>
                     <ColumnDefinition Width="11*"/>
                 </Grid.ColumnDefinitions>
-                <ListView ItemsSource="{Binding Projects}" FontSize="24" Grid.Row="0" Grid.Column="1" Margin="2" MaxHeight="500" MinHeight="500" x:Name="lv"
-                             >
+                <ListView ItemsSource="{Binding Projects}" FontSize="24" Grid.Row="0" Grid.Column="1" Margin="2" MaxHeight="500" MinHeight="500" x:Name="lv"  SelectedItem="{Binding SelectedProject}">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Name}"
@@ -112,6 +111,11 @@
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <EventSetter Event="MouseDoubleClick" Handler="OnMouseLeftButtonDown"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
                 </ListView>
                 <Grid  Grid.Row="0" Grid.Column="2">
                     <Grid.RowDefinitions>
