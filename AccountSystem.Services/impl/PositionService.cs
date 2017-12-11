@@ -24,9 +24,7 @@ namespace AccountSystem.Services.impl
         }
 
         public void SavePosition(Position position)
-        {
-            ValidatePosition(position);
-
+        {  
             _unitOfWork.PositionRepository.Add(position);
             _unitOfWork.Save();
         }
@@ -38,14 +36,8 @@ namespace AccountSystem.Services.impl
 
         public void UpdatePosition(Position position)
         {
-            ValidatePosition(position);
-
             _unitOfWork.PositionRepository.Update(position);
             _unitOfWork.Save();
-        }
-
-        private void ValidatePosition(Position position)
-        {
         }
     }
 }

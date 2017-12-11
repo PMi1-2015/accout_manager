@@ -25,11 +25,11 @@ namespace AccountSystem.ViewModels
 
         public ICommand BackAction { get; set; }
 
-        private ICommand _updateProjecAction;
-        public ICommand UpdateProjectAction => _updateProjecAction;
+        private ICommand _updateProjectAction;
+        public ICommand UpdateProjectAction => _updateProjectAction;
 
-        private ICommand _deleteProjecAction;
-        public ICommand DeleteProjectAction => _deleteProjecAction;
+        private ICommand _deleteProjectAction;
+        public ICommand DeleteProjectAction => _deleteProjectAction;
 
         private ICommand _resetChangesAction;
         public ICommand ResetChangesAction => _resetChangesAction;
@@ -48,8 +48,8 @@ namespace AccountSystem.ViewModels
 
             BackAction = new RelayCommand(Back);
 
-            _updateProjecAction = new RelayCommand(UpdateProject, CanUpdateProject);
-            _deleteProjecAction = new RelayCommand(DeleteProject);
+            _updateProjectAction = new RelayCommand(UpdateProject, CanUpdateProject);
+            _deleteProjectAction = new RelayCommand(DeleteProject);
             _makeEditableAction = new RelayCommand(MakeEditable, CanMakeEditable);
             _resetChangesAction = new RelayCommand(ResetChanges, CanResetChanges);
         }
@@ -118,28 +118,28 @@ namespace AccountSystem.ViewModels
         public ProjectViewModel Project
         {
             get { return _project; }
-            set { _project = value; OnPoropertyChanged("Project"); }
+            set { _project = value; OnPropertyChanged("Project"); }
         }
 
         private String _errorMessage;
         public String ErrorMessage
         {
             get { return _errorMessage; }
-            set { _errorMessage = value; OnPoropertyChanged("ErrorMessage"); }
+            set { _errorMessage = value; OnPropertyChanged("ErrorMessage"); }
         }
         private bool _isEditable = false;
         public Boolean IsEditable
         {
             get { return _isEditable; }
-            set { _isEditable = value; OnPoropertyChanged("IsEditable"); ButtonChange(); }
+            set { _isEditable = value; OnPropertyChanged("IsEditable"); ButtonChange(); }
         }
 
         private void ButtonChange()
         {
-            OnPoropertyChanged("FirstButtonText");
-            OnPoropertyChanged("SecondButtonText");
-            OnPoropertyChanged("FirstButtonAction");
-            OnPoropertyChanged("SecondButtonAction");
+            OnPropertyChanged("FirstButtonText");
+            OnPropertyChanged("SecondButtonText");
+            OnPropertyChanged("FirstButtonAction");
+            OnPropertyChanged("SecondButtonAction");
         }
     }
 }

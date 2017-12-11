@@ -17,7 +17,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _selectedViewModel = value;
-                OnPoropertyChanged("SelectedViewModel");
+                OnPropertyChanged("SelectedViewModel");
             }
         }
 

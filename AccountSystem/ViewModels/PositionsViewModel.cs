@@ -17,12 +17,6 @@ namespace AccountSystem.ViewModels
     {
         public Position SelectedPosition { get; set; }
 
-        private bool _useStart = false;
-        public Boolean UseStart { get { return _useStart; } set { _useStart = value; OnPoropertyChanged("UseStart"); } }
-
-        private bool _useEnd = false;
-        public Boolean UseEnd { get { return _useEnd; } set { _useEnd = value; OnPoropertyChanged("UseEnd"); } }
-
         private IPositionService _positionService;
         private NavigationViewModel _navigationViewModel;
 
@@ -36,7 +30,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _positions = value.ToList();
-                OnPoropertyChanged("Positions");
+                OnPropertyChanged("Positions");
             }
         }
 
@@ -47,7 +41,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _searchName = value;
-                OnPoropertyChanged("SearchName");
+                OnPropertyChanged("SearchName");
             }
         }
 

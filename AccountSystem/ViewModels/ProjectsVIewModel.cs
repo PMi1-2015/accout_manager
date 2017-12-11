@@ -18,10 +18,10 @@ namespace AccountSystem.ViewModels
         public Project SelectedProject { get; set; }
 
         private bool _useStart = false;
-        public Boolean UseStart { get { return _useStart; } set { _useStart = value; OnPoropertyChanged("UseStart"); } }
+        public Boolean UseStart { get { return _useStart; } set { _useStart = value; OnPropertyChanged("UseStart"); } }
 
         private bool _useEnd = false;
-        public Boolean UseEnd { get { return _useEnd; } set { _useEnd = value; OnPoropertyChanged("UseEnd"); } }
+        public Boolean UseEnd { get { return _useEnd; } set { _useEnd = value; OnPropertyChanged("UseEnd"); } }
 
         private IProjectService _projectService;
         private NavigationViewModel _navigationViewModel;
@@ -36,7 +36,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _projects = value.ToList();
-                OnPoropertyChanged("Projects");
+                OnPropertyChanged("Projects");
             }
         }
 
@@ -47,7 +47,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _searchName = value;
-                OnPoropertyChanged("SearchName");
+                OnPropertyChanged("SearchName");
             }
         }
 
@@ -61,7 +61,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _start = value;
-                OnPoropertyChanged("StartDate");
+                OnPropertyChanged("StartDate");
             }
         }
 
@@ -76,7 +76,7 @@ namespace AccountSystem.ViewModels
             {
                 _end = value;
 
-                OnPoropertyChanged("EndDate");
+                OnPropertyChanged("EndDate");
             }
         }
 

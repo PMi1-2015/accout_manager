@@ -17,8 +17,8 @@ namespace AccountSystem.ViewModels
 
         public ICommand BackAction { get; set; }
 
-        private ICommand _saveProjecAction;
-        public ICommand SavePositionAction { get { return _saveProjecAction; } }
+        private ICommand _savePositionAction;
+        public ICommand SavePositionAction { get { return _savePositionAction; } }
 
         public AddPositionViewModel(NavigationViewModel navigationViewModel)
         {
@@ -26,7 +26,7 @@ namespace AccountSystem.ViewModels
             _positionService = ServiceLocator.Instance.GetService<IPositionService>();
 
             BackAction = new RelayCommand(Back);
-            _saveProjecAction = new RelayCommand(SavePosition, CanSavePosition);
+            _savePositionAction = new RelayCommand(SavePosition, CanSavePosition);
 
         }
 
@@ -69,21 +69,21 @@ namespace AccountSystem.ViewModels
         public String PositionName
         {
             get { return _positionName; }
-            set { _positionName = value; OnPoropertyChanged("PositionName"); }
+            set { _positionName = value; OnPropertyChanged("PositionName"); }
         }
 
-        private String _projecDescription;
+        private String _positionDescription;
         public String PositionDescription
         {
-            get { return _projecDescription; }
-            set { _projecDescription = value; OnPoropertyChanged("PositionDescription"); }
+            get { return _positionDescription; }
+            set { _positionDescription = value; OnPropertyChanged("PositionDescription"); }
         }
 
         private String _errorMessage;
         public String ErrorMessage
         {
             get { return _errorMessage; }
-            set { _errorMessage = value; OnPoropertyChanged("ErrorMessage"); }
+            set { _errorMessage = value; OnPropertyChanged("ErrorMessage"); }
         }
     }
 }
