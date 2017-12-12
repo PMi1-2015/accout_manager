@@ -28,6 +28,7 @@ namespace AccountSystem.Services
             _container.RegisterInstance<IAppUserService>(new AppUserService(UnitOfWork.Instance));
             _container.RegisterInstance<IProjectService>(new ProjectService(UnitOfWork.Instance));
             _container.RegisterInstance<IEmployeeService>(new EmployeeService(UnitOfWork.Instance));
+            _container.RegisterInstance<IPositionService>(new PositionService(UnitOfWork.Instance));
         }
 
         public T GetService<T>()

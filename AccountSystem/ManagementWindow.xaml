@@ -37,6 +37,17 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:EmployeeUpdateViewModel}">
             <v:EmployeeUpdate/>
+        <DataTemplate DataType="{x:Type vm:PositionsCrudViewModel}">
+            <local:PositionsCrudControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddPositionViewModel}">
+            <v:AddPositionView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PositionsViewModel}">
+            <v:PositionsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PositionUpdateViewModel}">
+            <v:PositionUpdate/>
         </DataTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">
