@@ -26,7 +26,18 @@
         <DataTemplate DataType="{x:Type vm:ProjectUpdateViewModel}">
             <v:ProjectUpdate/>
         </DataTemplate>
-
+        <DataTemplate DataType="{x:Type vm:EmployeesCrudViewModel}">
+            <local:EmployeesCrudControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddEmployeeViewModel}">
+            <v:AddEmployeeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EmployeesViewModel}">
+            <v:EmployeesView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EmployeeUpdateViewModel}">
+            <v:EmployeeUpdate/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type vm:PositionsCrudViewModel}">
             <local:PositionsCrudControl/>
         </DataTemplate>

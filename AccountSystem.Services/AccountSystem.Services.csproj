@@ -49,6 +49,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEmployeeService.cs" />
+    <Compile Include="impl\EmployeeService.cs" />
     <Compile Include="impl\AppUserService.cs" />
     <Compile Include="IAppUserService.cs" />
     <Compile Include="impl\PositionService.cs" />

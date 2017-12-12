@@ -70,7 +70,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BackButton.cs" />
+    <Compile Include="EmployeesCrudControl.xaml.cs">
+      <DependentUpon>EmployeesCrudControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ErrorLabel.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
@@ -84,11 +90,16 @@
       <DependentUpon>ProjectsCrudControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\RelayCommand.cs" />
-    <Compile Include="ViewModels\AddPositionViewModel.cs" />
+    <Compile Include="ViewModels\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\AddProjectViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EmployeesCrudViewModel.cs" />
+    <Compile Include="ViewModels\EmployeesViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeUpdateViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\AddPositionViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\PositionsCrudViewModel.cs" />
     <Compile Include="ViewModels\PositionsViewModel.cs" />
     <Compile Include="ViewModels\PositionUpdateViewModel.cs" />
@@ -97,11 +108,20 @@
     <Compile Include="ViewModels\ProjectsViewModel.cs" />
     <Compile Include="ViewModels\ProjectUpdateViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
+    <Compile Include="Views\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddPositionView.xaml.cs">
       <DependentUpon>AddPositionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddProjectView.xaml.cs">
       <DependentUpon>AddProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeesView.xaml.cs">
+      <DependentUpon>EmployeesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeUpdate.xaml.cs">
+      <DependentUpon>EmployeeUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PositionUpdate.xaml.cs">
       <DependentUpon>PositionUpdate.xaml</DependentUpon>
@@ -116,6 +136,10 @@
       <DependentUpon>ProjectUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="WaterMarkTextHelper.cs" />
+    <Page Include="EmployeesCrudControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,15 +168,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Views\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddPositionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddProjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmployeeUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
