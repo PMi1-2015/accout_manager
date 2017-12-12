@@ -17,38 +17,37 @@ namespace AccountSystem.ViewModels
         public ProjectViewModel(Project project)
         {
             _projectName = project.Name;
-            _projecDescription = project.Description;
+            _projectDescription = project.Description;
             _startDate = project.StartDate;
             _endDate = project.EndDate;
         }
-
 
         private String _projectName;
         public String ProjectName
         {
             get { return _projectName; }
-            set { _projectName = value; OnPoropertyChanged("ProjectName"); }
+            set { _projectName = value; OnPropertyChanged("ProjectName"); }
         }
 
-        private String _projecDescription;
+        private String _projectDescription;
         public String ProjectDescription
         {
-            get { return _projecDescription; }
-            set { _projecDescription = value; OnPoropertyChanged("ProjectDescription"); }
+            get { return _projectDescription; }
+            set { _projectDescription = value; OnPropertyChanged("ProjectDescription"); }
         }
 
         private DateTime _startDate;
         public DateTime StartDate
         {
             get { return _startDate; }
-            set { _startDate = value; OnPoropertyChanged("StartDate"); }
+            set { _startDate = value; OnPropertyChanged("StartDate"); }
         }
 
         private DateTime _endDate;
         public DateTime EndDate
         {
             get { return _endDate; }
-            set { _endDate = value; OnPoropertyChanged("EndDate"); }
+            set { _endDate = value; OnPropertyChanged("EndDate"); }
         }
         
     }

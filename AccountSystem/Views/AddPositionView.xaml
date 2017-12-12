@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="AccountSystem.Views.AddPositionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:v="clr-namespace:AccountSystem.Views"
+             xmlns:local="clr-namespace:AccountSystem"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Height="800" Width="1200"
+             Background="{StaticResource MainBrush}">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Separator Grid.Row="1" Grid.Column="1" Height="10" Visibility="Hidden"/>
+                    <Label Grid.Row="1" Grid.Column="1" Background="{StaticResource MainBrush}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="56">Position</Label>
+                </Grid>
+                <local:ErrorLabel Content="{Binding ErrorMessage}" Grid.Row="2" Grid.Column="1" Background="{StaticResource MainBrush}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="Red"/>
+                <local:BackButton Grid.Row="0" Grid.Column="0" Command="{Binding BackAction}" HorizontalAlignment="Left" Margin="10, -14, 0, 0" Width="50" Height="50"/>
+            </Grid>
+            <Grid Height="350">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="1.25*"/>
+                    <RowDefinition Height="0.75*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <local:ErrorLabel x:Name="ErrorLabel" Grid.Row="0" Grid.Column="1" Margin="10"  Style="{StaticResource ErrorLabel}"></local:ErrorLabel>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Text="{Binding PositionName}" FontSize="24" Grid.Row="1" Grid.Column="1" Margin="2" Style="{StaticResource WaterMarkTextBox}"
+                             local:WaterMarkTextHelper.WatermarkText="Position Name"/>
+                </Grid>
+                <Label Grid.Row="2" Grid.Column="1">Description:</Label>
+                <TextBox Text="{Binding PositionDescription}" VerticalAlignment="Stretch" FontSize="16" Grid.Row="3" Grid.Column="1" Height="350"                             
+                            TextWrapping="Wrap"
+                            AcceptsReturn="True"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Auto"/>
+                
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource RoundCorner}"  Grid.Column="1" Margin="10" FontSize="36" Command="{Binding SavePositionAction}">Add Position
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

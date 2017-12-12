@@ -10,26 +10,26 @@ using System.Windows.Input;
 
 namespace AccountSystem.ViewModels
 {
-    class ProjectUpdateViewModel : BaseViewModel
+    class PositionUpdateViewModel : BaseViewModel
     {
-        private ProjectsViewModel _searchViewModel;
+        private PositionsViewModel _searchViewModel;
 
         public String FirstButtonText => IsEditable ? "Save Changes" : "Update";
         public String SecondButtonText => IsEditable ? "Reset" : "Delete";
 
-        public ICommand FirstButtonAction => IsEditable ? UpdateProjectAction : MakeEditableAction;
-        public ICommand SecondButtonAction => IsEditable ? ResetChangesAction : DeleteProjectAction;
+        public ICommand FirstButtonAction => IsEditable ? UpdatePositionAction : MakeEditableAction;
+        public ICommand SecondButtonAction => IsEditable ? ResetChangesAction : DeletePositionAction;
 
-        private Project _projectEntity;
-        private IProjectService _projectService;
+        private Position _positionEntity;
+        private IPositionService _positionService;
 
         public ICommand BackAction { get; set; }
 
-        private ICommand _updateProjectAction;
-        public ICommand UpdateProjectAction => _updateProjectAction;
+        private ICommand _updatePositionAction;
+        public ICommand UpdatePositionAction => _updatePositionAction;
 
-        private ICommand _deleteProjectAction;
-        public ICommand DeleteProjectAction => _deleteProjectAction;
+        private ICommand _deletePositionAction;
+        public ICommand DeletePositionAction => _deletePositionAction;
 
         private ICommand _resetChangesAction;
         public ICommand ResetChangesAction => _resetChangesAction;
@@ -37,19 +37,19 @@ namespace AccountSystem.ViewModels
         private ICommand _makeEditableAction;
         public ICommand MakeEditableAction => _makeEditableAction;
 
-        public ProjectUpdateViewModel(NavigationViewModel navigationViewModel, ProjectsViewModel searchModel, Project project)
+        public PositionUpdateViewModel(NavigationViewModel navigationViewModel, PositionsViewModel searchModel, Position position)
         {
             _searchViewModel = searchModel;
-            _projectEntity = project;
-            _project = new ProjectViewModel(project);
+            _positionEntity = position;
+            _position = new PositionViewModel(position);
 
             _navigationViewModel = navigationViewModel;
-            _projectService = ServiceLocator.Instance.GetService<IProjectService>();
+            _positionService = ServiceLocator.Instance.GetService<IPositionService>();
 
             BackAction = new RelayCommand(Back);
 
-            _updateProjectAction = new RelayCommand(UpdateProject, CanUpdateProject);
-            _deleteProjectAction = new RelayCommand(DeleteProject);
+            _updatePositionAction = new RelayCommand(UpdatePosition, CanUpdatePosition);
+            _deletePositionAction = new RelayCommand(DeletePosition);
             _makeEditableAction = new RelayCommand(MakeEditable, CanMakeEditable);
             _resetChangesAction = new RelayCommand(ResetChanges, CanResetChanges);
         }
@@ -60,47 +60,40 @@ namespace AccountSystem.ViewModels
             _searchViewModel.SearchCommand.Execute(null);
         }
 
-        private void UpdateProject(object obj)
+        private void UpdatePosition(object obj)
         {
-            _projectEntity.Name = _project.ProjectName;
-            _projectEntity.Description = _project.ProjectDescription;
-            _projectEntity.StartDate = _project.StartDate;
-            _projectEntity.EndDate = _project.EndDate;
-
-            _projectService.UpdateProject(_projectEntity);
+            _positionEntity.Name = _position.PositionName;
+            _positionEntity.Description = _position.PositionDescription;
+           
+            _positionService.UpdatePosition(_positionEntity);
             IsEditable = false;
         }
 
-        private bool CanUpdateProject(object obj)
+        private bool CanUpdatePosition(object obj)
         {
-            if (String.IsNullOrEmpty(_project.ProjectName))
+            if (String.IsNullOrEmpty(_position.PositionName))
             {
-                ErrorMessage = "Project name can't be empty";
+                ErrorMessage = "Position name can't be empty";
                 return false;
             }
-            if (String.IsNullOrEmpty(_project.ProjectDescription))
+            if (String.IsNullOrEmpty(_position.PositionDescription))
             {
-                ErrorMessage = "Project description can't be empty";
+                ErrorMessage = "Position description can't be empty";
                 return false;
             }
-            if (_project.StartDate == null || _project.StartDate.CompareTo(_project.EndDate) > 0)
-            {
-                ErrorMessage = "Invalid project period";
-                return false;
-            }
-
+           
             return true;
         }
 
-        private void DeleteProject(object obj)
+        private void DeletePosition(object obj)
         {
-            _projectService.DeleteProject(_projectEntity);
+            _positionService.DeletePosition(_positionEntity);
             Back(null);
         }
 
         private void ResetChanges(object obj)
         {
-            Project = new ProjectViewModel(_projectEntity);
+            Position = new PositionViewModel(_positionEntity);
         }
 
         private bool CanResetChanges(object obj) => _isEditable;
@@ -114,11 +107,11 @@ namespace AccountSystem.ViewModels
         private NavigationViewModel _navigationViewModel;
 
 
-        private ProjectViewModel _project;
-        public ProjectViewModel Project
+        private PositionViewModel _position;
+        public PositionViewModel Position
         {
-            get { return _project; }
-            set { _project = value; OnPropertyChanged("Project"); }
+            get { return _position; }
+            set { _position = value; OnPropertyChanged("Position"); }
         }
 
         private String _errorMessage;

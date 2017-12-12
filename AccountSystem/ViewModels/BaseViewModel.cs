@@ -11,7 +11,7 @@ namespace AccountSystem.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPoropertyChanged(string propName)
+        protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }

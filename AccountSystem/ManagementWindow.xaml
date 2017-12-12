@@ -26,6 +26,19 @@
         <DataTemplate DataType="{x:Type vm:ProjectUpdateViewModel}">
             <v:ProjectUpdate/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:PositionsCrudViewModel}">
+            <local:PositionsCrudControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddPositionViewModel}">
+            <v:AddPositionView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PositionsViewModel}">
+            <v:PositionsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PositionUpdateViewModel}">
+            <v:PositionUpdate/>
+        </DataTemplate>
     </Window.Resources>
     <DockPanel LastChildFill="True">
         <ContentControl x:Name="Pages" Content="{Binding SelectedViewModel}"/>
