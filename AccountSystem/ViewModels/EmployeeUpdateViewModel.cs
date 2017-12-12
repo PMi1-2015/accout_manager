@@ -111,28 +111,28 @@ namespace AccountSystem.ViewModels
         public EmployeeViewModel Employee
         {
             get { return _employee; }
-            set { _employee = value; OnPoropertyChanged("Employee"); }
+            set { _employee = value; OnPropertyChanged("Employee"); }
         }
 
         private String _errorMessage;
         public String ErrorMessage
         {
             get { return _errorMessage; }
-            set { _errorMessage = value; OnPoropertyChanged("ErrorMessage"); }
+            set { _errorMessage = value; OnPropertyChanged("ErrorMessage"); }
         }
         private bool _isEditable = false;
         public Boolean IsEditable
         {
             get { return _isEditable; }
-            set { _isEditable = value; OnPoropertyChanged("IsEditable"); ButtonChange(); }
+            set { _isEditable = value; OnPropertyChanged("IsEditable"); ButtonChange(); }
         }
 
         private void ButtonChange()
         {
-            OnPoropertyChanged("FirstButtonText");
-            OnPoropertyChanged("SecondButtonText");
-            OnPoropertyChanged("FirstButtonAction");
-            OnPoropertyChanged("SecondButtonAction");
+            OnPropertyChanged("FirstButtonText");
+            OnPropertyChanged("SecondButtonText");
+            OnPropertyChanged("FirstButtonAction");
+            OnPropertyChanged("SecondButtonAction");
         }
     }
 }

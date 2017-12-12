@@ -25,13 +25,13 @@ namespace AccountSystem.ViewModels
         public String EmployeeFirstName
         {
             get { return _employeeFirstName; }
-            set { _employeeFirstName = value; OnPoropertyChanged("EmployeeFirstName"); }
+            set { _employeeFirstName = value; OnPropertyChanged("EmployeeFirstName"); }
         }
         private String _employeeLastName;
         public String EmployeeLastName
         {
             get { return _employeeLastName; }
-            set { _employeeLastName = value; OnPoropertyChanged("EmployeeLastName"); }
+            set { _employeeLastName = value; OnPropertyChanged("EmployeeLastName"); }
         }
     }
 }

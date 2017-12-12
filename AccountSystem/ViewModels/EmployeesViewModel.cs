@@ -28,7 +28,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _employees = value.ToList();
-                OnPoropertyChanged("Employees");
+                OnPropertyChanged("Employees");
             }
         }
 
@@ -39,7 +39,7 @@ namespace AccountSystem.ViewModels
             set
             {
                 _searchName = value;
-                OnPoropertyChanged("SearchName");
+                OnPropertyChanged("SearchName");
             }
         }
 
