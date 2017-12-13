@@ -21,7 +21,7 @@ namespace AccountSystem.ViewModels
         public MenuViewModel(NavigationViewModel navigationViewModel)
         {
             _navigationViewModel = navigationViewModel;
-
+            
             ProjectsCommand = new RelayCommand(GoToProjectsControl);
 			
             EmployeeCommand = new RelayCommand(GoToEmployeesControl);
